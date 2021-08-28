@@ -20,7 +20,14 @@
                 height: 70%;
                 border-radius: 50%;
                 border: 20px $mainColor solid;
+
+                &:hover{
+                    border: 30px lightsalmon solid;
+                }
             }
+
+
+
         }
     }
 
