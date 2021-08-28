@@ -27,6 +27,7 @@ export default function Intro() {
                 <div className="wrapper">
                     <h2>Hi there, I'm</h2>
                     <h1>Aaron B. D'Souza</h1>
+                    <h4>B.C.A, M.Sc. IT</h4>
                     <h3>I am <span className="dynamicText" ref={textRef}></span></h3>
                 </div>
                 <a href="#portfolio">
