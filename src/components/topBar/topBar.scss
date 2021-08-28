@@ -42,13 +42,11 @@
                     font-size: 15px;
                     font-weight: 600;
                 }
+
+                &:hover {
+                    color: orange;
+                }
             }
-
-            .itemContainer:hover {
-                color: orange;
-            }
-
-
         }
 
         .right{
@@ -61,11 +59,13 @@
                 cursor: pointer;
                 border: 3px solid darkgray;
                 padding: 5px;
+
+                &:hover {
+                    border-color: lightsalmon;
+                }
             }
 
-            .hamburger:hover {
-                border-color: lightsalmon;
-            }
+            
 
             span{
                 width: 100%;
