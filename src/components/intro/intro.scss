@@ -1,3 +1,72 @@
+@import "../../global.scss";
 .intro{
-    background-color: lightpink;
+    background-color: whitesmoke;
+    display: flex;
+
+
+    .left{
+        flex:0.4;
+        overflow: hidden;
+
+        .imgContainer{
+            width: 100%;
+            height: 100%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{
+                height: 70%;
+                border-radius: 50%;
+                border: 20px $mainColor solid;
+            }
+        }
+    }
+
+    .right{
+        flex: 0.6;
+        position: relative;
+
+        .wrapper{
+            width: 100%;
+            height: 85%;
+            padding-left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1{
+                font-size: 60px;
+                margin: 10px 0px
+            }
+
+            h2{
+                font-size: 35px;
+            }
+
+            h3{
+                font-size: 30px;
+            }
+        }
+
+        a{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            text-decoration: none;
+            color: $mainColor;
+            transform: rotate(90deg);
+            animation: arrowBlink 2s infinite;
+            
+        }
+
+        @keyframes arrowBlink {
+            100%{
+                opacity: 0;
+            }
+        }
+
+    }
+
 }

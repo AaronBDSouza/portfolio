@@ -9,11 +9,11 @@ export default function TopBar({menuOpen,setMenuOpen}) {
                     <a href="#intro" className="logo">genie.io</a>
                     <div className="itemContainer">
                         <Person className="icon"/>
-                        <span>+91 9638527410</span>
+                        <span><a href="tel:919638527410">+91 9638527410</a></span>
                     </div>
                     <div className="itemContainer">
                         <Mail className="icon"/>
-                        <span>arrow123@gmail.com</span>
+                        <span><a href="mailto:arrow123@gmail.com">arrow123@gmail.com</a></span>
                     </div>
                 </div>
                 <div className="right">
