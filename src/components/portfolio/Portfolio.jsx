@@ -1,8 +1,13 @@
 import './portfolio.scss'
 import PortfolioList from "../portfolioList/PortfolioList";
 import { useState } from 'react';
+import { featuredPortfolioData, softwarePortfolioData, webPortfolioData, mobilePortfolioData, designPortfolioData  } from '../../data';
+import { useEffect } from 'react';
+import { data } from 'browserslist';
+
 export default function Portfolio() {
     const [selected, setSelected] = useState('featured');
+    const [categoryData, setCategoryData] = useState([]);   
     const list = [
         {
             id: "featured",
@@ -25,6 +30,31 @@ export default function Portfolio() {
             title: "Graphic Designs"
         }        
     ];
+
+    useEffect(() => {
+        switch(selected){
+            case "featured":
+                setCategoryData(featuredPortfolioData);
+                break;
+            case "software":
+                setCategoryData(softwarePortfolioData);
+                break;
+            case "web":
+                setCategoryData(webPortfolioData);
+                break;
+            case "mobile":
+                setCategoryData(mobilePortfolioData);
+                break;
+            case "design":
+                setCategoryData(designPortfolioData);
+                break;      
+            default:
+                setCategoryData(featuredPortfolioData);
+                break;              
+        }
+
+    },[selected])
+
     return (
         <div className="portfolio" id="portfolio">
             <h1>Portfolio</h1>
@@ -38,32 +68,12 @@ export default function Portfolio() {
                 ))}
             </ul>
             <div className="container">
-
+                {categoryData.map((dataItem) => (
                 <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>
-                <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>
-                <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>
-                <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>
-                <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>
-                <div className="item">
-                    <img src="assets/test.jpg" alt="portfolio1"/>
-                    <h3>Banking</h3>
-                </div>                
-
+                    <img src={dataItem.img} alt={dataItem.title}/>
+                    <h3>{dataItem.title}</h3>
+                </div>   
+                ))}          
             </div>
         </div>
     )
