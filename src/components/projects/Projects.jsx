@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './projects.scss'
 
 
@@ -27,36 +28,44 @@ export default function Projects() {
         }
     ];
 
+
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const handleClick = (direction) => {
+        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: 2) :
+        setCurrentSlide(currentSlide < sliderData.length - 1 ? currentSlide + 1: 0)
+
+    }
+
     return (
         <div className="projects" id="projects">
-            <div className="slider">
+            <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}vw)`}}>
                 {   sliderData.map((sliderItem) => (
                 <div className="container">
                     <div className="item">
                         <div className="left">
                             <div className="leftContainer">
                                 <div className="imgContainer">
-                                    <img src={sliderItem.img} alt="background"/>
+                                    <img src={sliderItem.icon} alt={sliderItem.title}/>
                                 </div>
-                                <h2>Title</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo eos.</p>
+                                <h2>{sliderItem.title}</h2>
+                                <p>{sliderItem.description}</p>
                                 <span>Projects</span>
                             </div>
                             
                         </div>
                         <div className="right">
-                            <img src="https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg" alt="background"/>
+                            <img src={sliderItem.img} alt={sliderItem.title}/>
                         </div>
                     </div>
                 </div>
                 ))}
             </div>
-            <h2>LEFT</h2>
             <span className="arrowContainer left"></span>
-            <img src="assets/left_arrow.png" alt="left" className="arrow left"/> 
+            <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
             
             <span className="arrowContainer right"></span>
-            <img src="assets/left_arrow.png" alt="right" className="arrow right"/>
+            <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
         </div>
     )
