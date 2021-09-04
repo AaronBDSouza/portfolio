@@ -50,6 +50,11 @@ export const mobilePortfolioData = [
         id: 2,
         title: "Rental App",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfCwFwZp74t4d3Wd_A1tG39ohhEkRfVPLhXQ&usqp=CAU"
+    },
+    {
+        id: 3,
+        title: "Music App",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
     }
 ];
 
