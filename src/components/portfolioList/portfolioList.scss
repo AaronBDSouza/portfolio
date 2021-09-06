@@ -11,6 +11,15 @@
     &.active{
         background-color: $mainColor;
         color: white;
-        
     }
+
+    @include mobile{
+        font-size: 15px;
+        font-weight: 900;
+        @media(max-width:270px){
+            font-size: 10px;
+        }
+    }
+
+
 }
