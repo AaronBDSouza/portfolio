@@ -1,3 +1,5 @@
+@import "../../global.scss";
+
 .projects{
     background-color: crimson;
     display: flex;
@@ -22,6 +24,10 @@
             transform: rotateY(180deg);
         }
 
+        @include mobile{
+            display: none;
+        }
+
     }
 
     .arrowContainer{
@@ -41,6 +47,10 @@
             right: 77px;
         }
 
+        @include mobile{
+            display: none;
+        }
+
     }
     
 
@@ -50,6 +60,12 @@
         position: absolute;
         left: 0;
         transition: all 1s ease;
+
+        @include mobile{
+            height: 100vh;
+            flex-direction:column;
+            justify-content: center;
+        }
 
         .container{
             width: 100vw;
@@ -65,6 +81,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                @include mobile{
+                    height: 250px;
+                    width: 90%;
+
+                }
 
                 .left{
                     flex: 4;
@@ -127,5 +149,8 @@
                 }
             }
         }
+
+
+
     }
 }
