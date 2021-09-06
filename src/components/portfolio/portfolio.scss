@@ -48,6 +48,13 @@
         justify-content: center;
         flex-wrap: wrap;
 
+        @include mobile{
+            width: 100%;
+            @media(max-width: 486px){
+                align-items: flex-start;
+            }
+        }
+
         .item{
             width: 220px;
             height: 150px;
@@ -93,12 +100,10 @@
                 height: 80px;
                 border-radius: 5px;
             }
-        }
 
-        @include mobile{
-            width: 100%;
-            @media(max-width: 486px){
-                height: 60%;
+            @media(min-width: 600px){
+                width: 200px;
+                height: 150px;
                 align-items: flex-start;
             }
         }
