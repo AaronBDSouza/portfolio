@@ -1,9 +1,10 @@
 import './gallery.scss'
 import { useState } from 'react';
+import { galleryData } from '../../galleryData';
 
 export default function Gallery() {
 
-    const sliderData = [
+    /*const sliderData = [
         {
             id: 1,
             title: "Some Title 1 Some Title 1 Some Title 1 Some Title 1",
@@ -61,13 +62,13 @@ export default function Gallery() {
             img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
         }
 
-    ];
+    ];*/
 
     var w = window.innerWidth;
     const [currentSlide, setCurrentSlide] = useState(0);
     const handleClick = (direction) => {
-        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: sliderData.length - 3) :
-        setCurrentSlide(currentSlide < sliderData.length - 3 ? currentSlide + 1: 0)
+        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - 3) :
+        setCurrentSlide(currentSlide < galleryData.length - 3 ? currentSlide + 1: 0)
     }
 
     return (
@@ -78,7 +79,7 @@ export default function Gallery() {
             <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
 
             {/* Section Header */}
-            <h1>Achievements</h1>
+            <h1>Gallery</h1>
 
             {/* Right Arrow Section */}
             <span className="arrowContainer right"></span>
@@ -86,7 +87,7 @@ export default function Gallery() {
             
             {/* Slideshow for Medium to Large Screens */}                 
             <div className="slider" style={ (w > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
-                {   sliderData.map((sliderItem) => (
+                {   galleryData.map((sliderItem) => (
                 <div className="container">
                     <div className="item">
                         <div className="top">

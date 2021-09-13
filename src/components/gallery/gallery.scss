@@ -33,27 +33,27 @@
         cursor: pointer;
         z-index: 2;
         top:0;
-        margin-top: 30px;
+        margin-top: 22px;
         padding: 10px 20px 10px 20px; 
 
         &.left{
-            left: 85px;
+            left: 80px;
         }
 
         &.right{
-            right: 85px;
+            right: 80px;
             transform: rotateY(180deg);
         }
 
         @include mobile{
             height: 25px;
-            margin-top: 35px;
+            margin-top: 28px;
             &.left{
-                left: 18px;
+                left: 10px;
             }
     
             &.right{
-                right: 18px;
+                right: 10px;
             }
         }
 
@@ -67,6 +67,7 @@
         background-color: ghostwhite;
         z-index: 1;
         border-radius: 50px;
+        border: 1px solid lightgray;
         top:0;
         margin-top: 15px;
 
@@ -83,11 +84,11 @@
             height: 40px;
             margin-top: 30px;
             &.left{
-                left: 7px;
+                left: 18px;
             }
     
             &.right{
-                right: 7px;
+                right: 18px;
             }
         }
 
@@ -97,7 +98,7 @@
     .slider{
         margin-top: 65px;
         //width: 100%;
-        //background-color: yellow;
+        background-color: yellow;
         height: 80%;
         display: flex;
         position: absolute;
@@ -107,23 +108,27 @@
         //justify-content: space-around;
 
         @include mobile{
-            @media(max-width: 330px){
-                margin-left: 2020px;
-            }
-    
-            @media(min-width: 331px){
-                margin-left: 1990px;
-            }
-    
-            @media(min-width: 430px){
-                margin-left: 1890px;
-            }   
-            
-            @media(min-width: 520px){
-                margin-left: 1850px;
-            }  
-        }        
 
+        }        
+        @media screen and (min-width: 0px){
+            margin-left: 850px;
+        }
+
+        @media screen and (max-width: 331px){
+            margin-left: 1990px;
+        }
+
+        @media screen and (max-width: 430px){
+            margin-left: 1890px;
+        }   
+        
+        @media screen and (max-width: 520px){
+            margin-left: 1850px;
+        }  
+
+        @media screen and (min-width: 786px){
+            margin-left: 0px;
+        }
 
 
         .container{
