@@ -63,31 +63,29 @@ export default function Gallery() {
 
     ];
 
-
+    var w = window.innerWidth;
     const [currentSlide, setCurrentSlide] = useState(0);
-
     const handleClick = (direction) => {
         direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: sliderData.length - 3) :
         setCurrentSlide(currentSlide < sliderData.length - 3 ? currentSlide + 1: 0)
     }
 
-
-
     return (
+        
         <div className="gallery" id="gallery">
             {/* Left Arrow Section */}
             <span className="arrowContainer left"></span>
             <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
 
             {/* Section Header */}
-            <h1>Achievements & Participations</h1>
+            <h1>Achievements</h1>
 
             {/* Right Arrow Section */}
             <span className="arrowContainer right"></span>
             <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
-                       
-            <div className="slider" style={{ transform: `translateX(-${currentSlide * 435}px)`}}>
+            {/* Slideshow for Medium to Large Screens */}                 
+            <div className="slider" style={ (w > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
                 {   sliderData.map((sliderItem) => (
                 <div className="container">
                     <div className="item">
