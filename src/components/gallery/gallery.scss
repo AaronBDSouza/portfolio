@@ -1,3 +1,167 @@
+@import "../../global.scss";
+
 .gallery{
-    background-color: lightseagreen;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include mobile{
+        justify-content: space-around;
+    } 
+
+    h1{
+        display: flex;
+        font-size: 50px;
+        position: absolute;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 25px;
+        top:0;
+        @include mobile{
+            font-size: 30px; 
+            margin-top: 10px;
+        }
+    }
+
+
+    .arrow{
+        height: 50px;
+        position: absolute;
+        cursor: pointer;
+        z-index: 2;
+        top:0;
+        margin-top: 30px;
+
+        &.left{
+            left: 100px;
+        }
+
+        &.right{
+            right: 100px;
+            transform: rotateY(180deg);
+        }
+
+        @include mobile{
+            display: none;
+        }
+
+    }
+
+    .arrowContainer{
+        position: absolute;
+        display: flex;
+        width: 80px;
+        height: 80px;
+        background-color: ghostwhite;
+        z-index: 1;
+        border-radius: 50px;
+        top:0;
+        margin-top: 15px;
+
+        &.left{
+            left: 77px;
+        }
+
+        &.right{
+            right: 77px;
+        }
+
+        @include mobile{
+            display: none;
+        }
+
+    }
+    
+
+    .slider{
+        margin-top: 65px;
+        //width: 100%;
+        //background-color: yellow;
+        height: 80%;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        //left: 0;
+        transition: all 1s ease;
+        //justify-content: space-around;
+
+        @include mobile{
+            height: 100vh;
+            flex-direction:column;
+            justify-content: center;
+        }
+
+        .container{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            .item{
+                width: 400px;
+                height: 100%;
+                background-color: white;
+                border-radius: 20px;
+                //display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @include mobile{
+                    height: 150px;
+                    width: 80%;
+                    margin: 5px 0;
+                }
+
+                .top{
+                    height: 75%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .leftContainer{
+                        width: 90%;
+                        height: 90%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        .imgContainer{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 5%;
+                            border-color: rgb(253, 186, 162);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+
+                .bottom{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 20px;
+                    font-size: 14px;
+
+                }
+            }
+        }
+
+
+
+    }
+
+
 }
