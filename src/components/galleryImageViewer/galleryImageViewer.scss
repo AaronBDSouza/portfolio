@@ -29,9 +29,19 @@
                 z-index: 3;
                 margin-top: 40px;
                 transition: all 1s ease;
+
+
+                @include mobile{
+                    height: 400px;
+                    width: 100%;
+                    object-fit: contain;
+                }
         
                 img{
                     height: inherit;
+                    @include mobile{
+                        object-fit: contain;
+                    }
                 }
         
                 .closeImgDiv{
@@ -45,6 +55,18 @@
                         font-size: 40px;
                         border: 5px solid white;
                         padding: 0 10px 0 10px;
+
+                        @include mobile{
+                            top:0;
+                            right: 0;
+                            margin: 5px 5px 0 0;
+                            font-size: 30px;
+                            font-weight: bolder;
+                            color: black;
+                            border: 5px solid rgb(179, 2, 2);
+                            background-color: white;
+                            padding: 0 10px 0 10px;
+                        }
                     }
                 }
     
