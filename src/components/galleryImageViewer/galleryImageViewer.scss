@@ -51,6 +51,7 @@
                         display: flex; 
                         position: absolute;
                         right: 0;
+                        margin: 0 50px 0 0;
                         color: white;
                         font-size: 40px;
                         border: 5px solid white;
@@ -59,7 +60,7 @@
                         @include mobile{
                             top:0;
                             right: 0;
-                            margin: 5px 5px 0 0;
+                            margin: 10px 10px 0 0;
                             font-size: 30px;
                             font-weight: bolder;
                             color: black;

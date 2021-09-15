@@ -25,13 +25,12 @@ export default function Gallery() {
         setCurrentSlide(currentSlide < galleryData.length - nosOfSlidesInView ? currentSlide + 1: 0)       
     }
 
+    //Sets selected img's details to the assigned variables
     const handleImageClick = (imgSrc,title) => {
         setFullScreenImageActive(true);
         setSelectedImgSrc(imgSrc);
         setSelectedImgTitle(title);
     }
-
-    //handleImageClick();
 
 
     return (
@@ -57,8 +56,6 @@ export default function Gallery() {
                                 <div className="imgContainer">
                                     <img src={sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
                                 </div>
-                                {/* <p>{sliderItem.description}</p> */}
-                                {/* <span>Projects</span> */}
                             </div>
                         </div>
 
@@ -66,16 +63,12 @@ export default function Gallery() {
                             <h2>{sliderItem.title}</h2>
                             <h4>{sliderItem.year + ', ' + sliderItem.location}</h4>
                         </div> 
-
-                        {/* <div className="right">
-                            <img src={sliderItem.img} alt={sliderItem.title}/>
-                        </div> */}
                     </div>
                 </div>
                 ))}
             </div>
 
-            {/* FullScreenImageView */}
+            {/* FullScreenImageView - Sends Img details to GalleryImageViewer Component*/}
             { fullScreenImageActive ? 
             <GalleryImageViewer 
             fullScreenImageActive={fullScreenImageActive}
@@ -83,19 +76,6 @@ export default function Gallery() {
             selectedImgTitle={selectedImgTitle}
             setFullScreenImageActive={setFullScreenImageActive}/> : ''}
             
-
-            {/* <div className={ fullScreenImageActive? "fullScreenImageContainer active": "fullScreenImageContainer"}>
-                <div className="fullScreenImageContainerBackground">
-                </div>
-                <div className="imgContainer">
-                    <img src ="assets/gallery_images/techlipse1.jpg" alt=""/>
-                    <div className="closeImgDiv">
-                        <span className="closeImg">X</span> 
-                    </div>
-                </div>
-            </div> */}
-            
-
         </div>
     )
 }
