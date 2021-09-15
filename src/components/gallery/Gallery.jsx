@@ -1,79 +1,38 @@
 import './gallery.scss'
 import { useState } from 'react';
 import { galleryData } from '../../galleryData';
+import GalleryImageViewer from '../galleryImageViewer/GalleryImageViewer';
 
 export default function Gallery() {
-
-    /*const sliderData = [
-        {
-            id: 1,
-            title: "Some Title 1 Some Title 1 Some Title 1 Some Title 1",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://images.websitebuilderexpert.com/wp-content/uploads/2019/10/01040943/wordpress-theme-directory-e1572618341853.png"
-        },
-        {
-            id: 2,
-            title: "Some Title 2",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfCwFwZp74t4d3Wd_A1tG39ohhEkRfVPLhXQ&usqp=CAU"
-        },
-        {
-            id: 3,
-            title: "Some Title 3",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
-        },
-        {
-            id: 2,
-            title: "Some Title 2",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfCwFwZp74t4d3Wd_A1tG39ohhEkRfVPLhXQ&usqp=CAU"
-        },
-        {
-            id: 3,
-            title: "Some Title 3",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
-        },
-        {
-            id: 3,
-            title: "Some Title 3",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
-        },
-        {
-            id: 2,
-            title: "Some Title 2",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfCwFwZp74t4d3Wd_A1tG39ohhEkRfVPLhXQ&usqp=CAU"
-        },
-        {
-            id: 3,
-            title: "Some Title 3",
-            icon: "https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?size=626&ext=jpg",
-            description: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, optio assumenda molestiae soluta, repellat cupiditate, aut ratione commodi dolores quod placeat dolor?",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcEfNbrNKnrW_iN4RVLReDfz44uwg7UnQVw&usqp=CAU"
-        }
-
-    ];*/
-
+    //For Slider Display
     var screenWidth = parseInt(window.innerWidth);
     const[nosOfSlidesInView, setNosOfSlidesInView] = useState(3);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [fullScreenImageActive, setfullScreenImage] = useState(false);
+
+    //For ImageViewer
+    const [fullScreenImageActive, setFullScreenImageActive] = useState(false);
+    const [selectedImgSrc, setSelectedImgSrc ] = useState('');
+    const [selectedImgTitle, setSelectedImgTitle ] = useState('');
+
+    //Function controls no. of images displayed based on screen width
     const handleClick = (direction) => {
+
+        //if screen width small than show 1 or 2 images in visible port else 3 
         screenWidth <= 768? setNosOfSlidesInView(screenWidth <= 550? 1:2): setNosOfSlidesInView(3)
-        /*alert(nosOfSlidesInView);*/
+
+        //left right arrow btn logic
         direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - nosOfSlidesInView) :
         setCurrentSlide(currentSlide < galleryData.length - nosOfSlidesInView ? currentSlide + 1: 0)       
     }
+
+    const handleImageClick = (imgSrc,title) => {
+        setFullScreenImageActive(true);
+        setSelectedImgSrc(imgSrc);
+        setSelectedImgTitle(title);
+    }
+
+    //handleImageClick();
+
 
     return (
         <div className="gallery" id="gallery">
@@ -96,7 +55,7 @@ export default function Gallery() {
                         <div className="top">
                             <div className="leftContainer">
                                 <div className="imgContainer">
-                                    <img src={sliderItem.img} alt={sliderItem.title}/>
+                                    <img src={sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
                                 </div>
                                 {/* <p>{sliderItem.description}</p> */}
                                 {/* <span>Projects</span> */}
@@ -117,7 +76,15 @@ export default function Gallery() {
             </div>
 
             {/* FullScreenImageView */}
-            <div className={ fullScreenImageActive? "fullScreenImageContainer active": "fullScreenImageContainer"}>
+            { fullScreenImageActive ? 
+            <GalleryImageViewer 
+            fullScreenImageActive={fullScreenImageActive}
+            selectedImgSrc={selectedImgSrc}
+            selectedImgTitle={selectedImgTitle}
+            setFullScreenImageActive={setFullScreenImageActive}/> : ''}
+            
+
+            {/* <div className={ fullScreenImageActive? "fullScreenImageContainer active": "fullScreenImageContainer"}>
                 <div className="fullScreenImageContainerBackground">
                 </div>
                 <div className="imgContainer">
@@ -126,7 +93,7 @@ export default function Gallery() {
                         <span className="closeImg">X</span> 
                     </div>
                 </div>
-            </div>
+            </div> */}
             
 
         </div>
