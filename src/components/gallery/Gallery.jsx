@@ -67,6 +67,7 @@ export default function Gallery() {
     var screenWidth = parseInt(window.innerWidth);
     const[nosOfSlidesInView, setNosOfSlidesInView] = useState(3);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [fullScreenImageActive, setfullScreenImage] = useState(false);
     const handleClick = (direction) => {
         screenWidth <= 768? setNosOfSlidesInView(screenWidth <= 550? 1:2): setNosOfSlidesInView(3)
         /*alert(nosOfSlidesInView);*/
@@ -114,6 +115,19 @@ export default function Gallery() {
                 </div>
                 ))}
             </div>
+
+            {/* FullScreenImageView */}
+            <div className={ fullScreenImageActive? "fullScreenImageContainer active": "fullScreenImageContainer"}>
+                <div className="fullScreenImageContainerBackground">
+                </div>
+                <div className="imgContainer">
+                    <img src ="assets/gallery_images/techlipse1.jpg" alt=""/>
+                    <div className="closeImgDiv">
+                        <span className="closeImg">X</span> 
+                    </div>
+                </div>
+            </div>
+            
 
         </div>
     )
