@@ -64,15 +64,17 @@ export default function Gallery() {
 
     ];*/
 
-    var w = window.innerWidth;
+    var screenWidth = parseInt(window.innerWidth);
+    const[nosOfSlidesInView, setNosOfSlidesInView] = useState(3);
     const [currentSlide, setCurrentSlide] = useState(0);
     const handleClick = (direction) => {
-        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - 3) :
-        setCurrentSlide(currentSlide < galleryData.length - 3 ? currentSlide + 1: 0)
+        screenWidth <= 768? setNosOfSlidesInView(screenWidth <= 550? 1:2): setNosOfSlidesInView(3)
+        /*alert(nosOfSlidesInView);*/
+        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - nosOfSlidesInView) :
+        setCurrentSlide(currentSlide < galleryData.length - nosOfSlidesInView ? currentSlide + 1: 0)       
     }
 
     return (
-        
         <div className="gallery" id="gallery">
             {/* Left Arrow Section */}
             <span className="arrowContainer left"></span>
@@ -86,7 +88,7 @@ export default function Gallery() {
             <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
             {/* Slideshow for Medium to Large Screens */}                 
-            <div className="slider" style={ (w > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
+            <div className="slider" style={ (screenWidth > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
                 {   galleryData.map((sliderItem) => (
                 <div className="container">
                     <div className="item">
@@ -102,6 +104,7 @@ export default function Gallery() {
 
                         <div className="bottom">
                             <h2>{sliderItem.title}</h2>
+                            <h4>{sliderItem.year + ', ' + sliderItem.location}</h4>
                         </div> 
 
                         {/* <div className="right">
