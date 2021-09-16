@@ -1,3 +1,4 @@
+/*Data used for development only*/ 
 export const featuredPortfolioData = [
     {
         id: 1,

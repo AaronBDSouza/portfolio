@@ -1,7 +1,7 @@
 import './portfolio.scss'
 import PortfolioList from "../portfolioList/PortfolioList";
 import { useState } from 'react';
-import { featuredPortfolioData, softwarePortfolioData, webPortfolioData, mobilePortfolioData, designPortfolioData  } from '../../data';
+import { featuredPortfolioData, softwarePortfolioData, webPortfolioData, mobilePortfolioData, designPortfolioData  } from '../../portfolioData';
 import { useEffect } from 'react';
 import { data } from 'browserslist';
 
