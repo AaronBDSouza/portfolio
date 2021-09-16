@@ -2,8 +2,7 @@ import TopBar from "./components/topBar/TopBar";
 import Menu from "./components/menu/Menu";
 import Intro from "./components/intro/Intro";
 import Portfolio from "./components/portfolio/Portfolio";
-import Projects from "./components/projects/Projects";
-import Testimonials from "./components/testimonials/Testimonials";
+import ProjectsList from "./components/projectsList/ProjectsList";
 import Gallery from "./components/gallery/Gallery";
 import Contact from "./components/contact/Contact";
 import "./App.scss";
@@ -18,10 +17,11 @@ function App() {
       <div className="sections">
         <Intro/>
         <Portfolio/>
-        <Projects/>
-        {/* <Testimonials/> */}
+        <ProjectsList/>
         <Gallery/>
         <Contact/>
+        {/* <Projects/> - For development only */}
+        {/* <Testimonials/> - For development only */}       
       </div>
     </div>
   );
