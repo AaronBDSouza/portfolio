@@ -8,11 +8,14 @@ import Gallery from "./components/gallery/Gallery";
 import Contact from "./components/contact/Contact";
 import "./App.scss";
 import { useState } from "react";
+import Route from "react-router-dom";
+import ProjectViewer from "./components/projectViewer/ProjectViewer";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="app">
+      <Route path="/projectViewer" render={(props) => <ProjectViewer {...props}/>}/>
       <TopBar menuOpen = { menuOpen } setMenuOpen = {setMenuOpen}/>
       <Menu menuOpen = { menuOpen } setMenuOpen = {setMenuOpen}/>
       <div className="sections">

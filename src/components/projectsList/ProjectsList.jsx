@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProjectListItems from "../projectsListItems/ProjectsListItems";
 import './projectsList.scss';
 import { featuredProjectData, latestProjectData, functionalityProjectData, designProjectData  } from '../../projectData';
-
+import { Redirect } from "react-router-dom";
 
 export default function ProjectsList() {
     const [selected, setSelected] = useState('featured');
@@ -49,6 +49,12 @@ export default function ProjectsList() {
 
     const handleProjectItemClick =(imgID) => {
         alert(imgID);
+        <Redirect
+            to={{
+            pathname: "/projectViewer",
+            state: { property_id: imgID }
+          }}
+        />
     }
 
     return (
