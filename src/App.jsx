@@ -22,7 +22,7 @@ function App() {
         <ProjectsList/>
         <Gallery/>
         <Contact/>
-        <Projects/>
+        {/* <Projects/> */}
         {/* <Portfolio/> - For development only */}
         {/* <Projects/> - For development only */}
         {/* <Testimonials/> - For development only */}       

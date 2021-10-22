@@ -58,7 +58,7 @@ export default function ProjectsList() {
     }
 
     return (
-        <div className="projectsList">
+        <div className="projectsList" id="projectsList">
             <h1>Projects</h1>
             <ul>
                 { list.map((item) => (
@@ -79,6 +79,7 @@ export default function ProjectsList() {
                     ))}          
                 </div>
             </div>
+            <h2 className="loadingText">Loading Projects... Initializing Server...</h2>
         </div>
     )
 }
