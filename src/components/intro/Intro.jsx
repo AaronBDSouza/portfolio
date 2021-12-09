@@ -11,7 +11,9 @@ export default function Intro() {
             showCursor: true, 
             backDelay: 1800,
             backSpeed: 60,
-            strings: ['a Software, Web & Mobile Apps Developer.', 'a Graphic Designer.', 'an AI/ML Enthusiast.'] 
+            strings: ['a Web Application Developer.', 'a Graphic Designer.', 'a Programming Enthusiast.'] 
+            //strings: ['a Software, Web & Mobile Apps Developer.', 'a Graphic Designer.', 'an AI/ML Enthusiast.'] 
+
         })
     },[])
 
