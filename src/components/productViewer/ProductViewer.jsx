@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ProjectViewer({projectID}) {
+export default function ProductViewer({productID}) {
     return (
         <div>
             

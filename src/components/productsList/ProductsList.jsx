@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import ProjectListItems from "../projectsListItems/ProjectsListItems";
-import './projectsList.scss';
+import ProductListItems from "../productsListItems/ProductsListItems";
+import './productsList.scss';
 import { featuredProjectData, latestProjectData, functionalityProjectData, designProjectData  } from '../../projectData';
 import { Redirect } from "react-router-dom";
 
-export default function ProjectsList() {
+export default function ProductsList() {
     const [selected, setSelected] = useState('featured');
     const [categoryData, setCategoryData] = useState([]);   
     const list = [
@@ -47,7 +47,7 @@ export default function ProjectsList() {
 
     },[selected]);
 
-    const handleProjectItemClick =(imgID) => {
+    const handleProductItemClick =(imgID) => {
         alert(imgID);
         <Redirect
             to={{
@@ -58,11 +58,11 @@ export default function ProjectsList() {
     }
 
     return (
-        <div className="projectsList" id="projectsList">
-            <h1>Projects</h1>
+        <div className="productsList" id="productsList">
+            <h1>Products</h1>
             <ul>
                 { list.map((item) => (
-                    <ProjectListItems 
+                    <ProductListItems 
                     id = {item.id}
                     title={item.title} 
                     active={selected === item.id} 
@@ -73,13 +73,13 @@ export default function ProjectsList() {
                 <div className="container">
                     {categoryData.map((dataItem) => (
                     <div className="item">
-                        <img src={dataItem.img} alt={dataItem.title} onClick={() => handleProjectItemClick(dataItem.id)}/>
+                        <img src={dataItem.img} alt={dataItem.title} onClick={() => handleProductItemClick(dataItem.id)}/>
                         <h3>{dataItem.title}</h3>
                     </div>   
                     ))}          
                 </div>
             </div>
-            <h2 className="loadingText">Loading Projects... Initializing Server...</h2>
+            <h2 className="loadingText">Loading Products... Initializing Server...</h2>
         </div>
     )
 }

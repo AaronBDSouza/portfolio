@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './projects.scss'
+import './products.scss'
 
 
-export default function Projects() {
+export default function Products() {
 
     const sliderData = [
         {
@@ -38,7 +38,7 @@ export default function Projects() {
     }
 
     return (
-        <div className="projects" id="projects">
+        <div className="products" id="products">
             <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}vw)`}}>
                 {   sliderData.map((sliderItem) => (
                 <div className="container">
@@ -50,7 +50,7 @@ export default function Projects() {
                                 </div>
                                 <h2>{sliderItem.title}</h2>
                                 <p>{sliderItem.description}</p>
-                                <span>Projects</span>
+                                <span>Products</span>
                             </div>
                             
                         </div>
