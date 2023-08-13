@@ -1,9 +1,9 @@
-import "./menu.scss";
+import "./dashboardMenu.scss";
 import { Link, Outlet } from "react-router-dom";
 
-export default function Menu({menuOpen,setMenuOpen}) {
+export default function DashboardMenu({menuOpen,setMenuOpen}) {
     return (
-        <div className={"menu " + (menuOpen && "active")}>
+        <div className={"dashboardMenu " + (menuOpen && "active")}>
             <ul>
                 <li onClick={ () => setMenuOpen(false) }>
                     <a href="#intro">Home</a>

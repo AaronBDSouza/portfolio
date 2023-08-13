@@ -1,0 +1,27 @@
+[
+    {
+      "code": 10,
+      "category": "Filters",
+      "description": "Water Filters"
+    },
+    {
+      "code": 11,
+      "category": "Aquatic Plants",
+      "description": "Live under water plants"
+    },
+    {
+      "code": 12,
+      "category": "Fish Food",
+      "description": "Food for Fish"
+    },
+    {
+      "code": 13,
+      "category": "Aquarium Tanks",
+      "description": "Fish Tank for Fishes"
+    },
+    {
+      "code": 14,
+      "category": "Tanks Decor",
+      "description": "Decoration for Aquarium Tanks"
+    }
+  ]

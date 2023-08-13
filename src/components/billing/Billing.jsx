@@ -1,9 +1,9 @@
-import './gallery.scss'
+import './billing.scss'
 import { useState } from 'react';
 import { galleryData } from '../../galleryData';
 import GalleryImageViewer from '../galleryImageViewer/GalleryImageViewer';
 
-export default function Gallery() {
+export default function Billing() {
     //For Slider Display
     var screenWidth = parseInt(window.innerWidth);
     const[nosOfSlidesInView, setNosOfSlidesInView] = useState(3);
@@ -34,22 +34,24 @@ export default function Gallery() {
 
 
     return (
-        <div className="gallery" id="gallery">
+        <div className="billing" id="billing">
+            <h1>HERE</h1>
+            {console.log('here')}
             {/* Left Arrow Section */}
             <span className="arrowContainer left"></span>
             <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
 
             {/* Section Header */}
-            <h1>Gallery</h1>
+            <h1>Billing</h1>
 
             {/* Right Arrow Section */}
             <span className="arrowContainer right"></span>
             <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
             {/* Slideshow for Medium to Large Screens */}                 
-            <div className="slider" style={ (screenWidth > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
+            {/* <div className="slider" style={ (screenWidth > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
                 {   galleryData.map((sliderItem) => (
-                <div key={sliderItem.id} className="container">
+                <div className="container">
                     <div className="item">
                         <div className="top">
                             <div className="leftContainer">
@@ -66,7 +68,7 @@ export default function Gallery() {
                     </div>
                 </div>
                 ))}
-            </div>
+            </div> */}
 
             {/* FullScreenImageView - Sends Img details to GalleryImageViewer Component*/}
             { fullScreenImageActive ? 

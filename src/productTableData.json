@@ -1,0 +1,27 @@
+[
+    {
+      "code": 10,
+      "name": "SEBO Filter",
+      "description": "Water Filter",
+      "category": 12,
+      "quantity": 10,
+      "price": 280.85,
+      "gst": 5.5,
+      "sku": "21B01101030C8",
+      "sold": true,
+      "eligibleForCommision": true,
+      "commision": 5,
+      "expiry": "",
+      "batchDate":[
+        {
+          "date": "08-08-23",
+          "quantity": 50
+        },
+        {
+          "date": "18-08-23",
+          "quantity": 23
+        }
+      ],
+      "image": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX674_.jpg"
+    }
+  ]

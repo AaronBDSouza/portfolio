@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductListItems from "../productsListItems/ProductsListItems";
 import './productsList.scss';
 import { featuredProjectData, latestProjectData, functionalityProjectData, designProjectData  } from '../../projectData';
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export default function ProductsList() {
     const [selected, setSelected] = useState('featured');
@@ -49,7 +49,7 @@ export default function ProductsList() {
 
     const handleProductItemClick =(imgID) => {
         alert(imgID);
-        <Redirect
+        <Navigate
             to={{
             pathname: "/projectViewer",
             state: { property_id: imgID }
@@ -63,6 +63,7 @@ export default function ProductsList() {
             <ul>
                 { list.map((item) => (
                     <ProductListItems 
+                    key={item.id}
                     id = {item.id}
                     title={item.title} 
                     active={selected === item.id} 
@@ -72,7 +73,7 @@ export default function ProductsList() {
             <div className="outerContainer">
                 <div className="container">
                     {categoryData.map((dataItem) => (
-                    <div className="item">
+                    <div key={dataItem.id} className="item">
                         <img src={dataItem.img} alt={dataItem.title} onClick={() => handleProductItemClick(dataItem.id)}/>
                         <h3>{dataItem.title}</h3>
                     </div>   

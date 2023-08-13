@@ -1,25 +1,16 @@
-.app{
-    height: 100vh;
+.app{}
 
-    .sections{
-        width: 100%;
-        height: calc(100vh - 60px);
-        background-color: lightsalmon;
-        position: relative;
-        top: 60px;
-        scroll-behavior: smooth;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: none;//firefox only
-        &::-webkit-scrollbar{
-            display: none;
-        }//Other browsers
-
-        > *{
-            width: 100vw;
-            height: calc(100vh - 70px);
-            scroll-snap-align: start;
+.srchSelectBox{
+    .css-b62m3t-container{
+        .css-1nmdiq5-menu{
+            display: contents;
         }
-
+        
+        .css-1n6sfyn-MenuList{
+            width: 579px;
+            background-color: rgb(255, 255, 255);
+            max-height: 150px !important;
+            border: 1px solid #4396fd;
+        }   
     }
-
 }
